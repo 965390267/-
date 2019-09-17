@@ -1,0 +1,135 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #000;
+
+}
+
+.global {
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.progress {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 30px;
+    height: 50px;
+    color: #fff;
+
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    /* border:1px dotted #ccc; */
+    font-size: 12px;
+}
+
+.slide {
+    position: relative;
+    display: flex;
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    margin: 2px 0;
+    padding-right: 2px;
+}
+
+.current {
+    display: inline-block;
+    width: 0%;
+    height: 10px;
+    margin: 1px 0;
+    margin-left: 2px;
+    border-radius: 4px 0 0 4px;
+    background: #000;
+    transition: width .5s;
+}
+
+.progress-num {
+    width: 40px;
+    margin-left: 10px;
+}
+
+.global-promotion {
+    width: 100%;
+    height: 100%;
+}
+
+.first {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: url('../img/first@2x.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.first-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    width: 60%;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    background: url('../img/start@2x.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.question-bar {
+    width: 65%;
+    margin: 0 auto;
+    height: 45px;
+    line-height: 45px;
+    background: url('../img/question-bar@2x.png') no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+.question-bar img {
+    height: 30px;
+    vertical-align: middle;
+}
+
+.title-bg {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 36px;
+    height: 100px;
+    line-height: 100px;
+    background: url('../img/title-bg@2x.png') no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+.title-bg img {
+    width: 90%;
+    vertical-align: middle;
+}
+
+.submit-btn-wrap {
+    margin-top: 40px;
+    position: relative;
+}
+
+.btn-item {
+    width: 50%;
+    height: 50px;
+    margin: 14px auto;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.btn-item img {
+    height: 25px;
+    vertical-align: middle;
+}
