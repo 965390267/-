@@ -65,8 +65,7 @@
 
                 for (let btn = 0; btn < btn_item.length; btn++) {
                     btn_item[btn].onclick = function () {
-                        let that = this;
-                        selectItem(index, btn, btn_item.length, that);
+                        selectItem(index, btn, btn_item.length, this);
                     }
                 }
             }
