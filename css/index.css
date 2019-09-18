@@ -6,7 +6,66 @@ body {
     background: #000;
 
 }
+/* 引导页，首页样式 */
+.first {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: url('../img/first@2x.png') no-repeat;
+    background-size: 100% 100%;
+}
 
+.first-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    width: 60%;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    background: url('../img/start@2x.png') no-repeat;
+    background-size: 100% 100%;
+}
+.guide{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+   background: #fff;
+}
+.guide .hi{
+    position: absolute;
+    left: 66%;
+    top: 23%;
+    width: 16%;
+    height: 120px;
+    /* transform: translate(-50%, -50%); */
+    background: url(../img/hi@2x.png) no-repeat;
+    background-size: 100% 100%;
+}
+.guide-bg{
+    height: 100%;
+    background: url(../img/banana@2x.png) no-repeat;
+    background-size: 100% 100%;
+}
+.present-progress{
+    position: absolute;
+    bottom: 120px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+}
+@keyframes rubberBand{0%{-webkit-transform:scaleX(1);transform:scaleX(1)}30%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}40%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}50%{-webkit-transform:scale3d(1.15,.85,1);transform:scale3d(1.15,.85,1)}65%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}75%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}to{-webkit-transform:scaleX(1);transform:scaleX(1)}}.rubberBand{-webkit-animation-name:rubberBand;animation-name:rubberBand}
+.animated{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}.animated.infinite{-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}
+@keyframes bounceIn{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:scale3d(.3,.3,.3);transform:scale3d(.3,.3,.3)}20%{-webkit-transform:scale3d(1.1,1.1,1.1);transform:scale3d(1.1,1.1,1.1)}40%{-webkit-transform:scale3d(.9,.9,.9);transform:scale3d(.9,.9,.9)}60%{opacity:1;-webkit-transform:scale3d(1.03,1.03,1.03);transform:scale3d(1.03,1.03,1.03)}80%{-webkit-transform:scale3d(.97,.97,.97);transform:scale3d(.97,.97,.97)}to{opacity:1;-webkit-transform:scaleX(1);transform:scaleX(1)}}.bounceIn{-webkit-animation-name:bounceIn;animation-name:bounceIn}
+/* 引导页，首页样式 */
+/* slide样式 */
 .global {
     flex-direction: column;
     height: 100%;
@@ -17,7 +76,7 @@ body {
     width: 90%;
     margin: 0 auto;
     padding-top: 30px;
-    height: 50px;
+    height: 1rem;
     color: #fff;
 
 }
@@ -60,7 +119,56 @@ body {
     height: 100%;
 }
 
-.first {
+
+/* slide部分样式 */
+.question-bar {
+    width: 65%;
+    margin: 0 auto;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    background: url('../img/question-bar@2x.png') no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+.question-bar img {
+    height: 0.6rem;
+    vertical-align: middle;
+}
+.title-bg {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 0.72rem;
+    height: 2rem;
+    line-height: 2rem;
+    background: url('../img/title-bg@2x.png') no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+.title-bg img {
+    width: 90%;
+    vertical-align: middle;
+}
+.submit-btn-wrap {
+    margin-top: 0.8rem;
+    position: relative;
+}
+.btn-item {
+    width: 50%;
+    height: 1rem;
+    margin: 0.28rem auto;
+    border: 2px solid #fff;
+    border-radius: 0.5rem;
+    text-align: center;
+    line-height: 1rem;
+}
+.btn-item img {
+    height: 0.5rem;
+    vertical-align: middle;
+}
+
+/* slide部分样式 */
+/* 确认提交框 */
+.is-submit{
     display: none;
     position: absolute;
     left: 0;
@@ -68,68 +176,75 @@ body {
     z-index: 999;
     width: 100%;
     height: 100%;
-    background: url('../img/first@2x.png') no-repeat;
-    background-size: 100% 100%;
+    background: rgba(0,0,0,.7);
 }
-
-.first-btn {
+.is-submit .certain{
     position: absolute;
     left: 50%;
-    bottom: 40px;
-    width: 60%;
-    height: 40px;
-    transform: translate(-50%, -50%);
-    background: url('../img/start@2x.png') no-repeat;
-    background-size: 100% 100%;
+    top: 50%;
+    width:80%;
+    height: 150px;
+    line-height: 300px;
+ transform: translate(-50%,-50%);
+ background: url(../img/certain-box@2x.png) no-repeat;
+ background-size: 100% 100%;
+ text-align: center;
 }
-
-.question-bar {
-    width: 65%;
-    margin: 0 auto;
+.is-submit .certain .submit-btn{
+    position: absolute;
+    bottom: 20px;
+    left: 15%;
+    width: 70%;
+    height: 28px;
+    background: url(../img/certain-btn@2x.png) no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+.submit-btn .left-cancel{
+    position: absolute;
+    bottom: -6px;
+    left: -8%;
+    width: 80px;
     height: 45px;
-    line-height: 45px;
-    background: url('../img/question-bar@2x.png') no-repeat;
+}
+ .submit-btn .right-certain{
+    position: absolute;
+    bottom: -6px;
+    right: -9%;
+    width: 80px;
+    height: 45px;
+ }
+/* 确认提交框 */
+/* 最后一张关注公众号 */
+.over{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1111;
+    width: 100%;
+    height: 100%;
+    background: url(../img/first@2x.png) no-repeat;
+    background-size: 100% 100%;
+    background: #000;
+}
+.over .gzh{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width:6.4rem;
+    height: 6.4rem;
+    line-height: 6rem;
+    transform: translate(-50%,-50%);
+    background: url(../img/qr-box@2x.png) no-repeat;
     background-size: 100% 100%;
     text-align: center;
 }
-
-.question-bar img {
-    height: 30px;
+.gzh img{
+    width: 2rem;
+    padding-left: 0.2rem;
+    margin-top: -0.16rem;
     vertical-align: middle;
 }
 
-.title-bg {
-    width: 75%;
-    margin: 0 auto;
-    margin-top: 36px;
-    height: 100px;
-    line-height: 100px;
-    background: url('../img/title-bg@2x.png') no-repeat;
-    background-size: 100% 100%;
-    text-align: center;
-}
-
-.title-bg img {
-    width: 90%;
-    vertical-align: middle;
-}
-
-.submit-btn-wrap {
-    margin-top: 40px;
-    position: relative;
-}
-
-.btn-item {
-    width: 50%;
-    height: 50px;
-    margin: 14px auto;
-    border: 2px solid #fff;
-    border-radius: 25px;
-    text-align: center;
-    line-height: 50px;
-}
-
-.btn-item img {
-    height: 25px;
-    vertical-align: middle;
-}
+/* 最后一张关注公众号 */

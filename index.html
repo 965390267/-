@@ -7,11 +7,19 @@
     <title>韭菜等级测试</title>
     <link rel="stylesheet" href="./css/swiper.min.css">
     <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/rem.js"></script>
 </head>
-
 <body>
-    <div class="first wrap-bg">
-        <div class="first-btn" onclick="gotofirst()"></div>
+        <div class="first wrap-bg">
+                <div class="first-btn" onclick="gotofirst()"></div>
+            </div>
+    <div class="guide  ">
+        <div class="guide-bg animated bounceIn infinite">
+                <div class="hi" ></div>
+        </div>
+        <div class="present-progress">
+            0%
+        </div>
     </div>
     <div class="global">
         <div class="progress">
@@ -21,19 +29,31 @@
                 </div>
                 <i class="progress-num">10%</i>
             </div>
-
         </div>
         <div class="swiper-container global-promotion">
             <div class="swiper-wrapper">
-
            <!-- slide动态渲染添加 -->
-
             </div>
         </div>
     </div>
+    <div class="is-submit">
+        <div class="certain">
+            <div class="submit-btn">
+                <div class="left-cancel" onclick="hide()"></div>
+                <div class="right-certain" onclick="gogzh()"></div>
+            </div>
+        </div>
+    </div>
+    <div class="over">
+        <div class="gzh">
+            <img src="./img/code.jpg" alt="" srcset="">
+        </div>
+    </div>
     <script>
+            const totalPage=11;
+            /* 动态渲染页面 */
         let str=''
-        for (let index = 1; index < 10; index++) {
+        for (let index = 1; index <totalPage; index++) {
             var slide=`
          <div class="swiper-slide">
                     <div class="question-bar"><img src="./question/${index}/num@2x.png" alt="" srcset=""></div>
@@ -48,7 +68,47 @@
          ` 
          str+=slide;
         } 
-         document.getElementsByClassName('swiper-wrapper')[0].innerHTML=str
+        document.getElementsByClassName('swiper-wrapper')[0].innerHTML=str;
+ /* 动态渲染页面 */
+        
+        /* 静态资源加载进度 */
+        let imgArr=['./img/banana@2x.png','./img/first@2x.png','./img/hi@2x.png',
+         './img/question@2x.png','./img/start@2x.png',
+         './img/title-bg@2x.png','./img/qr-box@2x.png'
+        ]
+        for (let index = 1; index <totalPage; index++) {
+            imgArr.push(`./question/${index}/q1@2x.png`)
+            imgArr.push(`./question/${index}/q2@2x.png`)
+            imgArr.push(`./question/${index}/q3@2x.png`)
+            imgArr.push(`./question/${index}/q4@2x.png`)
+            imgArr.push(`./question/${index}/num@2x.png`)
+            imgArr.push(`./question/${index}/question@2x.png`)
+            imgArr.push(`./question/${index}/b/q1@2x.png`)
+            imgArr.push(`./question/${index}/b/q2@2x.png`)
+            imgArr.push(`./question/${index}/b/q3@2x.png`)
+            imgArr.push(`./question/${index}/b/q4@2x.png`)
+        }
+        let i=0,imgLength= imgArr.length,guide=document.querySelector('.guide'),progress_present=document.getElementsByClassName('present-progress')[0];    
+      for (let index = 0; index <imgLength; index++) {
+         let Img=new Image()
+         Img.src=imgArr[index];
+         Img.onload=()=>{
+          i++;
+          progress_present.innerHTML=`${Math.floor(i/imgLength*100)}%`;
+          if(i==imgLength){
+            guide.style.display='none'
+          }
+         }
+         Img.onerror=()=>{
+            i++;   
+            progress_present.innerHTML=`${Math.floor(i/imgLength*100)}%`;
+          if(i==imgLength){
+            guide.style.display='none'    
+          }
+         }
+       
+      }
+   /* 静态资源加载进度 */     
     </script>
     <script src="./js/swiper.min.js"></script>
     <script src="./js/conf.js"></script>
@@ -75,7 +135,10 @@
             *@ parms {item_length}代表总共有多少个按钮，为了扩展所以动态传入
             *@ parms {self}代表点击按钮本身
             */
-            function selectItem(page, btn_item, item_length, self) {
+           let answer={};
+            function selectItem(page, btn_item, item_length, self) {   
+                answer[page]=btn_item; 
+                localStorage.setItem('answer',JSON.stringify(answer))            
                 for (let index = 0; index < item_length; index++) {
                     let current_page_btn = btn_wrap[page].getElementsByClassName('btn-item')[index];
                     current_page_btn.style.background = '#000';
@@ -83,8 +146,24 @@
                 }
                 self.style.background = '#fff'
                 self.children[0].src = `./question/${page + 1}/b/q${btn_item + 1}@2x.png`/* 设置为黑色字体 */
+                swiper.slideNext();
+                
+                if(swiper.clickedIndex==totalPage-2){
+                    document.querySelector('.is-submit').style.display='block';   
+                    console.log(page);
+                    
+                   // document.querySelectorAll('.swiper-slide')[page].style.background='#707070';               
+                }
             }
         })()
+        function hide(){
+           document.querySelector('.is-submit').style.display='none';
+        }
+        function gogzh(){
+            document.querySelector('.over').style.display='block';
+            document.querySelector('.is-submit').style.display='none';
+           
+        }
     </script>
 </body>
 
