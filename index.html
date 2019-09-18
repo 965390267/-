@@ -149,10 +149,7 @@
                 swiper.slideNext();
                 
                 if(swiper.clickedIndex==totalPage-2){
-                    document.querySelector('.is-submit').style.display='block';   
-                    console.log(page);
-                    
-                   // document.querySelectorAll('.swiper-slide')[page].style.background='#707070';               
+                    document.querySelector('.is-submit').style.display='block';              
                 }
             }
         })()
@@ -160,9 +157,10 @@
            document.querySelector('.is-submit').style.display='none';
         }
         function gogzh(){
-            document.querySelector('.over').style.display='block';
+            setTimeout(()=>{
+                document.querySelector('.over').style.display='block';
             document.querySelector('.is-submit').style.display='none';
-           
+            },800)        
         }
     </script>
 </body>
