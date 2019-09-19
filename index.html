@@ -14,9 +14,10 @@
                 <div class="first-btn" onclick="gotofirst()"></div>
             </div>
     <div class="guide ">
-        <div class="guide-bg animated bounceIn infinite">
-                <div class="hi" ></div>
+        <div class="guide-bg animated tada infinite">
+              
         </div>
+  <div class="hi" ></div>
         <div class="present-progress">
             0%
         </div>
@@ -39,8 +40,8 @@
     <div class="is-submit">
         <div class="certain">
             <div class="submit-btn">
-                <div class="left-cancel" onclick="hide()"></div>
-                <div class="right-certain" onclick="gogzh()"></div>
+                <div class="left-cancel" onclick="hide(this)"></div>
+                <div class="right-certain" onclick="gogzh(this)"></div>
             </div>
         </div>
     </div>
@@ -72,8 +73,8 @@
  /* 动态渲染页面 */
         
         /* 静态资源加载进度 */
-        let imgArr=['./img/banana@2x.png','./img/first@2x.png','./img/hi@2x.png',
-         './img/question@2x.png','./img/start@2x.png',
+        let imgArr=['./img/banana@2x.png','./img/first@2x.png',
+        './img/hi@2x.png', './img/start@2x.png',
          './img/title-bg@2x.png','./img/qr-box@2x.png'
         ]
         for (let index = 1; index <totalPage; index++) {
@@ -91,7 +92,6 @@
         let i=0,imgLength= imgArr.length,guide=document.querySelector('.guide'),progress_present=document.getElementsByClassName('present-progress')[0];    
       for (let index = 0; index <imgLength; index++) {
          let Img=new Image()
-         Img.src=imgArr[index];
          Img.onload=()=>{
           i++;
           progress_present.innerHTML=`${Math.floor(i/imgLength*100)}%`;
@@ -106,7 +106,7 @@
             guide.style.display='none'    
           }
          }
-       
+          Img.src=imgArr[index];
       }
    /* 静态资源加载进度 */     
     </script>
@@ -135,10 +135,13 @@
             *@ parms {item_length}代表总共有多少个按钮，为了扩展所以动态传入
             *@ parms {self}代表点击按钮本身
             */
-           let answer={};
+           let answer=[];
+           let rightAnswerIndex=0;//正确答案统计
+           let result=[2,1,2,0,0,1,2,0,3,2];//正确答案结果
             function selectItem(page, btn_item, item_length, self) {   
-                answer[page]=btn_item; 
-                localStorage.setItem('answer',JSON.stringify(answer))            
+                if(btn_item==result[page]) {
+                    rightAnswerIndex++;
+                }                
                 for (let index = 0; index < item_length; index++) {
                     let current_page_btn = btn_wrap[page].getElementsByClassName('btn-item')[index];
                     current_page_btn.style.background = '#000';
@@ -146,17 +149,24 @@
                 }
                 self.style.background = '#fff'
                 self.children[0].src = `./question/${page + 1}/b/q${btn_item + 1}@2x.png`/* 设置为黑色字体 */
+             
+                setTimeout(()=>{
                 swiper.slideNext();
-                
+                },300)
                 if(swiper.clickedIndex==totalPage-2){
-                    document.querySelector('.is-submit').style.display='block';              
+                    document.querySelector('.is-submit').style.display='block'; 
+                   localStorage.setItem('answer',rightAnswerIndex)             
                 }
             }
         })()
-        function hide(){
+        function hide(self){
+           self.classList.add('is-checked')
+           document.querySelector('.right-certain').classList.remove('is-checked')
            document.querySelector('.is-submit').style.display='none';
         }
-        function gogzh(){
+        function gogzh(self){
+           self.classList.add('is-checked')
+           document.querySelector('.left-cancel').classList.remove('is-checked')
             setTimeout(()=>{
                 document.querySelector('.over').style.display='block';
             document.querySelector('.is-submit').style.display='none';

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>韭菜等级测试结果</title>
+    <style>
+     html,body{
+         margin: 0;
+         padding: 0;
+        -webkit-touch-callout: none; /*系统默认菜单被禁用*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -khtml-user-select: none; /*早起浏览器*/
+    -moz-user-select: none; /*火狐浏览器*/
+    -ms-user-select: none; /*IE浏览器*/
+    user-select: none; /*用户是否能够选中文本*/
+     }
+     .result{
+      width: 100%;
+     }
+    </style>
+</head>
+<body>
+<img class="result" src="" alt="" srcset="">
+<script>
+let rightAnswerIndex=localStorage.getItem('answer')
+ if(rightAnswerIndex){
+    if(rightAnswerIndex==0||rightAnswerIndex==1||rightAnswerIndex==2){
+        document.querySelector('.result').src='./success/1.png'
+    }else if(rightAnswerIndex==3||rightAnswerIndex==4){
+        document.querySelector('.result').src='./success/2.png'
+    }else if(rightAnswerIndex==5||rightAnswerIndex==6){
+        document.querySelector('.result').src='./success/3.png'
+    }else if(rightAnswerIndex==7||rightAnswerIndex==8){
+        document.querySelector('.result').src='./success/4.png'
+    }else{
+        document.querySelector('.result').src='./success/5.png'
+    }
+    
+ }else{
+     document.querySelector('.result').src='./success/1.png'
+ }
+</script>
+</body>
+</html>
