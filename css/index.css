@@ -245,6 +245,16 @@ body {
     background-size: 100% 100%;
     background: #000;
 }
+.gzh-tips{
+    position: absolute;
+    left: 50%;
+    top: 18%;
+    width:4.4rem;
+    height: 1rem;
+    transform: translate(-50%,-50%);
+    background: url(../img/gzh-tips@2x.png) no-repeat;
+    background-size: 100% 100%;
+}
 .over .gzh{
     position: absolute;
     left: 50%;
